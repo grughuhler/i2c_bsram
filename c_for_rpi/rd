@@ -1,0 +1,4 @@
+#!/bin/bash
+i2cset -y 1 0x31 0 $1
+i2cset -y 1 0x31 1 $2
+i2cget -y 1 0x31 3

@@ -1,0 +1,29 @@
+This directory contains a test program that works with an FPGA
+bitfile that connects i2c to 16384 bytes of block sram.
+
+I2C registers must be:
+
+0: Address high order 8 bits (lower 6 used)
+1: Address low order 8 bits
+2: Data byte to write (write to register 2 triggers write to memory).
+3: Data byte at address in registers 0,1. (for reading)
+
+Install these packages, i2c-tools is to get i2cdetect, etc:
+
+   sudo apt install i2c-tools libi2c-dev
+
+Then "make".
+
+The program takes arguments:
+
+  -r addr       : read from addr
+  -2 addr value : write value to addr
+  -t            : Test all 16384 bytes of memory by writing and reading each.
+  -s            : Like -t but test fewer addresses so it's faster.
+
+example:
+
+  rpi-131 ./i2c_bsram -w 0x100 0x12 -w 0x210 0x34 -r 0x100 -r 0x210
+  mem[0x100] = 12
+  mem[0x210] = 34
+  rpi-132 

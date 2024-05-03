@@ -1,0 +1,14 @@
+This directory contains a project for the Gowin IDE and is intended for
+use on a Tang Nano 9K FPGA development board.
+
+The FPGA image includes an i2c target copyright Steve Fielding and
+OPENCORES.ORG.  Reads/writes via i2c from a Raspberry Pi cause
+reads/writes to an SRAM created from Block SRAMs on the Gowin FPA on
+the Tang Nano board.
+
+Directory c_for_rpi contains C source code for the Raspberry Pi.
+
+There is a YouTube video on this.
+
+See Grug Huhler's YouTube channel:
+https://www.youtube.com/@electronics.tinker
